@@ -1,0 +1,42 @@
+#just a base file to use for all of the games
+class Card:
+    def __init__(self, suit, number, colour):
+        self.suit = suit
+        self.number = number
+        self.colour = colour
+
+    def __str__(self):
+        name = str(self.number) + " of " + str(self.suit)
+        return name
+        
+
+class Player:
+    def __init__(self, name = "Player", tricks = 0, board = []):
+        self.name = name
+        self.hand = [];
+        self.tricks = tricks
+        self.board = board
+
+    def add_card(self, card):
+        return (self.hand.append(card))
+
+    def remove_card(self, card_index):
+        return (self.hand.pop(card_index))
+
+    def show_hand(self):
+        hand_list = []
+        for item in self.hand:
+            hand_list.append(item)
+        return hand_list
+
+    def get_hand_size(self):
+        #returns the number of hands in card MINUS 1
+        return len(self.hand) - 1
+
+    def add_trick(self):
+        self.tricks += 1
+        return self.tricks
+
+    def __str__(self):
+        return str(self.name)
+    
